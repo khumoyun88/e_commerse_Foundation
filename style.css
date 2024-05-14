@@ -1,0 +1,248 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 10px;
+}
+
+
+body{
+    max-width: 144rem;
+    margin: auto;
+    font-family: "Inter", sans-serif;
+}
+
+.max-width{
+    max-width: 129.4rem;
+    margin: auto;
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
+}
+
+/* enter section */
+.enter{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 6.9rem;
+    background-color: #454444;
+}
+.enter div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.enter p{
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #FFf; 
+}
+
+
+ /* Genreal Container section */
+.container{
+    max-width: 144rem;
+    margin: auto;
+}
+
+/* header section */
+
+header { 
+    height: 13.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1{
+    font-size: 4rem;
+    color: #454444;
+}
+ul{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    width: 43.5rem;
+    margin-right: 10rem;
+}
+li{
+    list-style: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+li:hover{
+    text-decoration: underline;
+}
+
+.action{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 49.1rem;
+    
+}
+
+.input{
+    padding: 0.8rem 0.9rem;
+    background-color: #D9D9D9;
+    border: none;
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+.action input{
+    color: #000;
+    border: none;
+    background-color: inherit; 
+    font-size: 1.6rem;  
+}
+
+.action p {
+    color: #454444;
+    font-size: 1.8rem;
+    cursor: pointer; 
+}
+
+/* main section */
+
+main{
+    background-color: #D9D9D9;
+    background-image: url(./imges/bc_img.jpg) ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+
+}
+
+h1{
+   width: 39.8rem;
+   height: 132;
+   font-size: 3.6rem;
+   text-transform: uppercase;
+}
+
+main button {
+    padding: 1.7rem 6.3rem;
+    border-radius: 3rem;
+    border: none;
+    background-color: #454444;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 2.6rem;
+}
+
+
+
+
+/* filter section classess */
+
+.filter{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4rem 8rem ;
+}
+.filter img{
+
+}
+
+.filter button {
+    padding: 2rem 5rem;
+    border: none;
+    border-radius: 3rem;
+    font-size: 2rem;
+    font-weight: 700;
+    color:#454444 ;
+    background-color: #EFEFEF;
+    cursor: pointer;
+}
+
+
+.filter > button{
+    background-color: transparent;
+    border: 0.1px solid #000;
+}
+
+.filter > div{
+    display: flex;
+    justify-content: space-between;
+    width: 98.9rem;
+    height: 6.8rem;
+}
+
+
+
+/* cardssection */
+
+.cards{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+
+
+}
+.card{
+    width: 30.3rem;
+    margin-bottom: 5rem;
+
+}
+
+.img{
+    width: 30.2rem;
+    height: 30.2rem;
+    object-fit: contain;
+}
+.card button {
+    border: 0.1rem solid #000;
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 1.5rem 2.5rem;
+    border-radius: 3rem;
+    background-color: #fff;
+    cursor: pointer;
+
+}
+h2{
+    font-size:2.4rem ;
+    display: inline-block;
+    margin-right:3rem;
+    margin-block: 1.9rem;
+}
+h4{
+    font-size: 1.6rem;
+    font-weight: 500;
+    color:#454444 ;
+    height: 4rem;
+    overflow: hidden;
+}
+
+.card p {
+  display:inline-block ;
+  font-size: 1.2rem;
+  margin-block:1.9rem ;
+  margin-right: 1rem;
+}
+h5{
+  display:inline-block ;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-right: 10rem;
+}
+
+
+
+
+
+

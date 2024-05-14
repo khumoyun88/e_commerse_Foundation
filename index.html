@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Promise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- <script src="script.js"></script> -->
+    <style ></style>
+    <link rel="stylesheet" href="./style.css">
+
+
+    <style>
+        /* .spinner{
+            width: 20px;
+            height: 20px;
+            border: solid 4px blue;
+            border-top-color: transparent;
+            border-radius: 50%;
+
+            animation-name: spin;
+            animation-iteration-count: infinite;
+            animation-duration: 1s;
+            animation-timing-function:linear;
+
+
+        }
+
+        @keyframes spin{
+            to{
+                transform: rotateZ(360deg);
+            }
+        } */
+    </style>
+
+
+
+
+</head>
+<body>
+    <!-- <div class="spinner"></div> -->
+
+    <div class="enter">
+        <p><img style="margin-right: 1rem;" src="./imges/fi-rr-call-incoming.png" alt=""> +4904-049-950</p>
+
+        <div style="width: 42.2rem;">
+            <p>Get 50% Off on the Selected items </p>
+            <p style="height:3rem; width: 0.3Srem; border-left: solid; "></p>
+            <p style="font-weight: 700; "><a href="#">Shop now</a></p>
+        </div>
+
+        <div style="width: 18.2rem;">
+            <p>English</p>
+            <p>Location</p>
+        </div>
+    </div>
+    
+    <div class="container">
+
+        <header  class="max-width">
+            <h1>LOGO</h1>
+
+            <ul>
+                <li>Categories</li>
+                <li>What's new</li>
+                <li>Status</li>
+                <li>Help</li>
+            </ul>
+
+
+            <div class="action">
+                <div class="input">
+                    <input type="text" placeholder="Search products">
+                    <img src="./imges/fi-rr-search.png" alt="">
+                </div>
+                <p class="account"> <img style="margin-right: 1rem;" src="./imges/fi-rs-user.png" alt="">Account</p>         
+                <p> <img style="margin-right: 1rem;" src="./imges/fi-rs-shopping-cart.png" alt="">Card</p>
+            </div>
+
+
+
+
+
+        </header>
+
+        <main class="max-width"> 
+            <div style=" padding: 6rem 8.1rem 15.2rem 7.7rem;">
+                <h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit</h1>
+                <button>Shop Now</button>
+            </div> 
+        </main>
+
+        <div class="filter max-width">
+            <div>
+                <button>Headphone type img</button>
+                <button>Price</button>
+                <button>Material</button>
+                <button>Color</button>
+                <button>All Filters</button>
+            </div>
+            <button>Sort by</button>
+        </div>
+
+        <div class="cards max-width"></div>
+
+    </div>
+
+
+
+    <script>
+        let cards = document.querySelector(".cards")
+        let account = document.querySelector(".account")
+        let login = document.createElement("a")
+        console.log();
+
+
+
+
+
+
+        async function fetchProducts(){
+            const response = await fetch("https://fakestoreapi.com/products");
+            const products =await response.json();
+            return products
+        }
+
+        async function init(){
+            const products = await fetchProducts()
+            render(products)
+        }
+
+
+        function render(products){
+
+            products.forEach(function(product) {
+                
+                let card = document.createElement("div")
+                card.classList.add("card")
+                cards.append(card)
+
+                let a = document.createElement("a")
+                a.href = `http://127.0.0.1:5500/eachProduct.html?id=${product.id}`
+
+
+                
+                let img= document.createElement("img")
+                img.classList.add("img")
+                img.src = product.image
+                card.prepend(img)
+                console.log(card);
+
+
+                let name = document.createElement("h2")
+                name.textContent = `Product ${product.id}`
+                card.append(name)
+                
+
+                let price= document.createElement("h2")
+                price.textContent = ` $ ${product.price}`
+                card.append(price)
+
+                let title = document.createElement("h4")
+                title.textContent = product.title
+                a.append(title)
+                card.append(a)
+
+                let rate= document.createElement("p")
+                rate.textContent = "⭐️".repeat(Math.round(product.rating.rate));
+                card.append(rate)
+
+
+
+                let count= document.createElement("h5")
+                count.textContent = `(${product.rating.count})`
+                card.append(count)
+
+                let button = document.createElement("button")
+                button.textContent = "Add to card"
+                card.append(button)
+            });
+
+        }
+        init()
+
+
+
+
+
+
+        // const okay = true
+
+        // // (function(){
+        //     let div = document.createElement("div")
+        //     div.classList.add("spinner")
+        //     document.body.append(div)
+        // // })()
+
+        // function hideSpinner(){
+        //     let spinner = document.querySelector('.spinner')
+        //     spinner.style.display = "none"
+        // }
+
+        // function showresult(result) {
+        //     let div = document.createElement("div")
+        //     div.textContent = result
+        //     document.body.append(div)   
+        // }
+
+
+
+
+        // const promise = new Promise(function(resolve,reject){
+        //     setTimeout(() => {
+
+        //         if(okay){
+        //             resolve("Done we have products");
+        //         }else{
+        //             reject("Error something get wrong");
+        //         }
+
+        //     }, 2000);
+        // })
+
+
+
+        // promise
+        //     .then(function(result){
+
+        //         showresult(result) 
+        //     })
+
+        //     .catch(function (result) {
+        //         showresult(result) 
+                
+        //     })
+        //     .finally(function(){
+        //         hideSpinner()
+        //     })
+
+
+        // let promise = fetch("https://fakestoreapi.com/products")
+
+        // promise
+        // .then(function(response){
+        //     return response.json();
+        // })
+        // .then(function(result){
+        //     console.log(result[0]);
+        // })
+        // .catch(function(error){
+        //     console.log(error);
+        // })
+        
+
+        // function render(products){
+
+        //     products.forEach(function(product) {
+        //         let img = document.createElement("img")
+        //         img.scr = product.image
+        //         container.append(img)
+        //         console.log(img);
+        //     });
+            
+        // }
+
+        
+
+
+
+
+    </script>
+
+
+    
+</body>
+</html>

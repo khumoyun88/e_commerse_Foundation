@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Each Product</title>
+    <link rel="stylesheet" href="./style.css">
+
+    <style>
+        .each-product{
+            max-width: 400px;
+            margin: auto;
+        }
+        .each-product img{
+            width: 300px;
+            height: auto; 
+        }
+
+        button{
+            padding: 15px 17px;
+            border: none;
+            background-color:#454444;
+            color: #fff;
+            border-radius: 30px;
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+    <div class="enter">
+        <p><img style="margin-right: 1rem;" src="./imges/fi-rr-call-incoming.png" alt=""> +4904-049-950</p>
+
+        <div style="width: 42.2rem;">
+            <p>Get 50% Off on the Selected items </p>
+            <p style="height:3rem; width: 0.3Srem; border-left: solid; "></p>
+            <p style="font-weight: 700; "><a href="#">Shop now</a></p>
+        </div>
+
+        <div style="width: 18.2rem;">
+            <p>English</p>
+            <p>Location</p>
+        </div>
+    </div>
+
+    <header  class="max-width">
+        <h1>LOGO</h1>
+
+        <ul>
+            <li>Categories</li>
+            <li>What's new</li>
+            <li>Status</li>
+            <li>Help</li>
+        </ul>
+
+
+        <div class="action">
+            <div class="input">
+                <input type="text" placeholder="Search products">
+                <img src="./imges/fi-rr-search.png" alt="">
+            </div>
+            <p class="account"> <img style="margin-right: 1rem;" src="./imges/fi-rs-user.png" alt="">Account</p>         
+            <p> <img style="margin-right: 1rem;" src="./imges/fi-rs-shopping-cart.png" alt="">Card</p>
+        </div>
+
+
+
+
+
+    </header>
+
+
+    <h1>Product</h1>
+
+
+
+    
+
+
+    <script>
+        init()
+
+        async function init(){
+
+            
+            const productId = idGetter()
+            const product = await fetchProducts(productId)
+            // console.log(product);
+
+            renderProduct(product)
+
+
+
+               
+        }
+
+        function idGetter(){
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const id = urlParams.get("id");
+            return id
+        }
+
+
+        async function fetchProducts(id) {
+            let response =await fetch(`https://fakestoreapi.com/products/${id}`)
+            let result = await response.json()
+
+            return result
+             
+        }
+
+        function renderProduct(product) {
+
+            const div = document.createElement("div")
+            div.classList.add("each-product")
+            
+
+                let img= document.createElement("img")
+                img.classList.add("img")
+                img.src = product.image
+                div.prepend(img)
+                
+
+
+                let name = document.createElement("h2")
+                name.textContent = `Product ${product.id}`
+                div.append(name)
+                
+
+                let price= document.createElement("h2")
+                price.textContent = ` $ ${product.price}`
+                div.append(price)
+
+                let title = document.createElement("h4")
+                title.textContent = product.title
+                div.append(title)
+
+                let rate= document.createElement("p")
+                rate.textContent = "⭐️".repeat(Math.round(product.rating.rate));
+                div.append(rate)
+
+                let count= document.createElement("h5")
+                count.textContent = `(${product.rating.count})`
+                div.append(count)
+
+
+                let button = document.createElement("button")
+                button.textContent = "Add to card"
+                div.append(button)
+
+            
+                document.body.append(div)
+        }
+        
+    </script>
+</body>
+</html>
